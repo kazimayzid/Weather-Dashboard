@@ -3,46 +3,49 @@ import TempMinIcon from "../../assets/icons/temp-min.svg"
 import HumadityIcon from "../../assets/icons/humidity.svg"
 import CloudyIcon from "../../assets/icons/cloud.svg"
 import WindIcon from "../../assets/icons/wind.svg"
+import { useContext } from "react"
+import { WeatherContext } from "../../context"
 export default function WeatherCondition() {
+  const {weatherData} = useContext(WeatherContext)
   return (
     <>
       <div>
         <p className="text-sm lg:text-lg font-bold uppercase mb-8">
-          thunderstorm with light drizzle
+          The climate is <span className="font-black">{weatherData.climate}</span>
         </p>
         <ul className="space-y-6 lg:space-y-6">
           <li className="text-sm lg:text-lg flex items-center justify-between space-x-4">
             <span>Temp max</span>
             <div className="inline-flex space-x-4">
-              <p>19°</p>
+              <p>{Math.round(weatherData.maxTemperature)}°</p>
               <img src={TempMaxIcon} alt="temp-max" />
             </div>
           </li>
           <li className="text-sm lg:text-lg flex items-center justify-between space-x-4">
             <span>Temp min</span>
             <div className="inline-flex space-x-4">
-              <p>19°</p>
+              <p>{Math.round(weatherData.minTemperature)}°</p>
               <img src={TempMinIcon} alt="temp-min" />
             </div>
           </li>
           <li className="text-sm lg:text-lg flex items-center justify-between space-x-4">
             <span>Humadity</span>
             <div className="inline-flex space-x-4">
-              <p>58%</p>
+              <p>{weatherData.humidity}%</p>
               <img src={HumadityIcon} alt="humidity" />
             </div>
           </li>
           <li className="text-sm lg:text-lg flex items-center justify-between space-x-4">
             <span>Cloudy</span>
             <div className="inline-flex space-x-4">
-              <p>86%</p>
+              <p>{weatherData.cloudPercentage}%</p>
               <img src={CloudyIcon} alt="cloudy" />
             </div>
           </li>
           <li className="text-sm lg:text-lg flex items-center justify-between space-x-4">
             <span>Wind</span>
             <div className="inline-flex space-x-4">
-              <p>5km/h</p>
+              <p>{weatherData.wind}km/h</p>
               <img src={WindIcon} alt="wind" />
             </div>
           </li>

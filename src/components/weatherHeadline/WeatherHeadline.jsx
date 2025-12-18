@@ -11,6 +11,7 @@ import { getFormattedDate } from "../../utils/date-utils";
 export default function WeatherHeadline() {
   const { weatherData, loading } = useContext(WeatherContext);
   const { climate, location, temperature, time } = weatherData;
+console.log(weatherData);
 
   function getWeatherIcon(climate) {
     switch (climate) {
