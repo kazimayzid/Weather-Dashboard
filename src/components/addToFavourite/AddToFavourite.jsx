@@ -1,4 +1,4 @@
-import { useContext, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import HeartIcon from "../../assets/heart.svg"
 import RedHeartIcon from "../../assets/heart-red.svg"
 import { FavouriteContext, WeatherContext } from "../../context"
@@ -10,6 +10,11 @@ export default function AddToFavourite() {
 
 
   const [isFavourite, toggleFavourite] = useState(false)
+ 
+
+  useEffect(() =>{
+     
+  },[])
 
   function handleFavourites (){
     const found = favourites.find((fav) => fav.location === location)
