@@ -2,8 +2,10 @@ import Favourite from "../favourite/Favourite";
 import FavouriteListModal from "../favouriteListModal/FavouriteListModal";
 import Search from "../search/Search";
 import LogoImage from "../../assets/logo.svg"
+import { useState } from "react";
 
 export default function Header() {
+  const [showFavModal, setShowFavModal] = useState(false)
   return (
     <>
       <header className="fixed w-full top-0 z-50 bg-gradient-to-b from-black/60 to-black/0 pb-10">
@@ -14,8 +16,10 @@ export default function Header() {
 
           <div className="flex items-center gap-4 relative">
             <Search />
-            <Favourite />
-            <FavouriteListModal />
+            <Favourite onShow={() => setShowFavModal(!showFavModal)}/>
+            {
+              showFavModal && <FavouriteListModal />
+            }
           </div>
         </nav>
       </header>
