@@ -231,3 +231,5 @@ function getLocationByName(location) {
         return defaultLocation
     }
 }
+
+export {getLocationByName, getLocations}

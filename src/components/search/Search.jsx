@@ -1,9 +1,18 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import SearchIcon from "../../assets/search.svg"
+import { LocationContext } from "../../context";
+import {getLocationByName} from "../../data/location-data"
 export default function Search() {
 const [searchTerm, setsearchTerm] = useState("")
 
-func
+const {setSelectedLocation} = useContext(LocationContext)
+
+
+ function handleSubmite(e) {
+  e.preventDefault();
+  const fetchedLocation = getLocationByName(searchTerm)
+  setSelectedLocation({...fetchedLocation})
+}
   return (
     <>
       <form action="#" onSubmit={handleSubmite}>
